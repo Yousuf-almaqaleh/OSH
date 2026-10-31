@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oral Surgery Case Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5f7;--card:#fff;--ink:#1c2433;--mute:#5d6878;--line:#d5dbe3;--acc:#17695f;--accbg:#e2f1ee;--warn:#9a4b00;--warnbg:#fdf0dc;--bad:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161d;--card:#1b212b;--ink:#e8ecf2;--mute:#9aa5b5;--line:#2f3846;--acc:#5fc4b5;--accbg:#173a36;--warn:#f0b266;--warnbg:#3a2a12;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#12161d;--card:#1b212b;--ink:#e8ecf2;--mute:#9aa5b5;--line:#2f3846;--acc:#5fc4b5;--accbg:#173a36;--warn:#f0b266;--warnbg:#3a2a12;--bad:#ff8a80}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 "Public Sans",system-ui,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+h1,h2{font-family:"Source Serif 4",Georgia,serif;margin:0}
+h1{font-size:26px}h2{font-size:18px;padding-bottom:8px;border-bottom:2px solid var(--acc);margin-bottom:12px}
+.sub{color:var(--mute);margin:4px 0 14px}
+section{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:14px}
+.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.w{grid-column:1/-1}
+label.l{display:block;font-weight:500;font-size:13px;margin-bottom:3px}
+.hint{color:var(--mute);font-weight:400}
+input:not([type=checkbox]):not([type=radio]),select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:4px;padding:8px}
+textarea{min-height:64px;resize:vertical}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:6px 16px;padding-top:4px}.opts label{display:flex;gap:6px;align-items:center}
+.hide{display:none}.sx{margin-top:6px}
+.banner{padding:10px 12px;border-radius:4px;background:var(--accbg);color:var(--acc);font-weight:600;margin-top:12px}
+.banner.exam{background:var(--warnbg);color:var(--warn)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:20px;padding:4px 12px;cursor:pointer;font:inherit;font-size:13px}
+.chip.done{background:var(--accbg);border-color:var(--acc);color:var(--acc)}
+.chip.ex{border-style:dashed}
+.chip.cur{outline:2px solid var(--ink)}
+.arch{display:grid;grid-template-columns:repeat(16,1fr);gap:3px;margin:6px 0}
+.t{padding:8px 0;font-size:12px;text-align:center;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink);cursor:pointer;min-width:0}
+.t.on{background:var(--acc);color:var(--card);border-color:var(--acc);font-weight:600}
+.arch.lo{margin-top:10px}
+.med{display:grid;gap:6px;margin-bottom:6px}
+.sc{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;align-items:end}
+.tot{font-size:22px;font-family:"Source Serif 4",Georgia,serif;font-weight:700}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 40px}
+button.b{font:inherit;font-weight:600;padding:10px 18px;border-radius:4px;border:1px solid var(--acc);background:var(--acc);color:var(--card);cursor:pointer}
+button.b.o{background:transparent;color:var(--acc)}
+#msg{align-self:center;color:var(--acc);font-weight:500}
+.tw{overflow-x:auto}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.top button{padding:6px 12px;font-size:13px;white-space:nowrap}
+.prow{display:flex;flex-wrap:wrap;gap:0 14px;margin-bottom:6px}.pq{display:flex;flex:1 1 280px;gap:2px}
+.tb{flex:1;min-width:0;padding:10px 0;font:inherit;font-size:14px;font-weight:600;background:var(--card);color:var(--ink);cursor:pointer;border:1px solid var(--line);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.qUR .tb{border-right:3px solid var(--ink);border-bottom:3px solid var(--ink)}.qUL .tb{border-left:3px solid var(--ink);border-bottom:3px solid var(--ink)}.qLR .tb{border-right:3px solid var(--ink);border-top:3px solid var(--ink)}.qLL .tb{border-left:3px solid var(--ink);border-top:3px solid var(--ink)}
+.tb.on{background:var(--acc);color:var(--card)}.tb.has{background:var(--warnbg);color:var(--warn)}.tb.miss{text-decoration:line-through}.tb.act{outline:2px solid var(--acc);outline-offset:1px}
+.tp{border:1px solid var(--line);border-radius:4px;padding:10px;margin-top:8px;background:var(--bg)}.tp .opts{margin:8px 0}.pt{margin-bottom:6px}.pt button{padding:4px 10px;font-size:13px}.dept{font-weight:600;color:var(--acc);font-size:15px;margin-bottom:2px}footer{text-align:center;color:var(--mute);font-size:13px;padding:8px 0 24px}.xg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-top:8px}.xi{margin:0}.xi img{width:100%;border:1px solid var(--line);border-radius:4px;background:#000}.xi input{margin-top:4px}.xi button{margin-top:4px;padding:4px 10px;font-size:13px}button.b.add{padding:6px 12px;font-size:13px;margin-top:2px}.med .mrm{padding:4px 10px}
+@media(max-width:640px){.med{grid-template-columns:1fr 1fr!important}.med input:first-child{grid-column:1/-1}.arch{grid-template-columns:repeat(8,1fr)}.t{padding:10px 0}}
+@media print{body{background:#fff;color:#000;font-size:11px}.bar,.chips,#tracker,.noprint{display:none!important}section{break-inside:avoid;border-color:#999}.wrap{padding:0}.hide{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><div><div class="dept">Oral and Maxillofacial Surgery Department · Sana’a University</div>
+<h1>Oral surgery case sheet</h1><p class="sub">Oral Surgery Clinic · 4th and 5th level</p></div><button type="button" id="theme" class="b o noprint"></button></div>
+<form id="form" onsubmit="return false"></form>
+<div class="bar">
+<button class="b" id="save" type="button">Save case</button>
+<button class="b o" id="print" type="button">Print / save as PDF</button>
+<button class="b o" id="clear" type="button">New blank case</button>
+<span id="msg" role="status"></span>
+</div>
+<footer>© 2026 MaqaTech · Oral and Maxillofacial Surgery Department, Sana’a University</footer>
+</div>
+<script>
+var REQ={"4":7,"5":10},DEF={},OT='Other (specify)';
+var slug=function(s){return s.toLowerCase().replace(/[^a-z]+/g,"_")};
+var N=function(s){var a=[];for(var i=0;i<s.length;i++)a.push(s[i]);return a};
+function tx(id,l,o){o=o||{};return '<div class="f '+(o.w?'w':'')+'"><label class="l">'+l+'</label>'+(o.a?'<textarea id="'+id+'"></textarea>':'<input type="'+(o.t||'text')+'" id="'+id+'"'+(o.x||'')+'>')+'</div>'}
+function dd(id,l,v,o){o=o||{};var d=o.def,L=(d?[d]:['']).concat(v);if(o.oth!==0)L.push(OT);DEF[id]=d||'';
+var dep=o.always?'':' data-dep="'+id+(d?'!='+d:'='+OT)+'"';
+return '<div class="f '+(o.w?'w':'')+'"><label class="l">'+l+'</label><select id="'+id+'">'+L.map(function(x){return '<option value="'+x+'">'+(x||'Select')+'</option>'}).join('')+'</select>'+(o.oth===0&&!o.always?'':'<input type="text" class="sx hide" id="'+id+'_t" placeholder="'+(o.ph||'Specify / details')+'"'+dep+'>')+'</div>'}
+function ck(id,l,v,o){return '<div class="f w"><label class="l">'+l+'</label><div class="opts">'+v.map(function(x){return '<label><input type="checkbox" data-grp="'+id+'" value="'+x+'"> '+x+'</label>'}).join('')+'</div>'+(o&&o.t?'<input type="text" class="sx" id="'+id+'_t" placeholder="Other / details">':'')+'</div>'}
+function sec(t,b){return '<section><h2>'+t+'</h2>'+b+'</section>'}
+function g(b){return '<div class="g">'+b+'</div>'}
+function arch(a,c){return '<div class="arch '+c+'">'+a.map(function(n){return '<button type="button" class="t" data-n="'+n+'">'+n+'</button>'}).join('')+'</div>'}
+function dl(id,v){return '<datalist id="'+id+'">'+v.map(function(x){return '<option value="'+x+'">'}).join('')+'</datalist>'}
+var DR={an:['Paracetamol Tab 500 mg','Paracetamol Tab 1 g','Ibuprofen Tab 400 mg','Ibuprofen Tab 600 mg','Diclofenac Tab 50 mg','Naproxen Tab 500 mg'],
+ ab:['Amoxicillin Cap 500 mg','Amoxicillin Tab 1 g','Amoxicillin/Clavulanate Tab 625 mg','Amoxicillin/Clavulanate Tab 1 g','Metronidazole Tab 500 mg','Azithromycin Tab 500 mg','Clindamycin Cap 300 mg'],
+ ot:['Chlorhexidine 0.12% mouthwash','Tranexamic acid Tab 500 mg','Dexamethasone Tab 4 mg','Normal saline rinse']};
+function medRows(k){return '<div id="rows_'+k+'"></div><button type="button" class="b o add noprint" data-k="'+k+'">+ Add medication</button><input type="text" class="sx" id="'+k+'_ins" placeholder="Instructions">'}
+var NAM='NAM',NAD='NAD';
+var MED=[['CNS',['Epilepsy','Stroke','Migraine','Parkinson’s disease','Anxiety / depression']],['Cardiovascular',['Hypertension','Ischemic heart disease','Rheumatic heart disease','Heart failure','Arrhythmia','Pacemaker / prosthetic valve']],['Endocrine',['Diabetes type 1','Diabetes type 2','Hypothyroidism','Hyperthyroidism','Adrenal disorder / long-term steroids']],['Respiratory',['Asthma','COPD','Tuberculosis']],['Hepatic',['Hepatitis B','Hepatitis C','Cirrhosis']],['Hematologic disorders',['Anemia','Sickle cell disease','Thalassemia','Hemophilia / bleeding disorder','Leukemia','On anticoagulant']],['G.I.T',['Peptic ulcer','GERD','Gastritis','Crohn’s / IBD']],['Integumentary',['Eczema','Psoriasis']],['Genitourinary',['Chronic kidney disease','Dialysis','Kidney stones']],['Musculoskeletal',['Rheumatoid arthritis','Osteoporosis / bisphosphonates','Gout']],['Allergy',['Penicillin','Sulfa','NSAIDs / aspirin','Latex','Local anesthetic','Food']],['Immunity',['HIV','Immunosuppressive therapy','Autoimmune disease (SLE)']]];
+var EXTRA=[['Eyes',['Jaundice (icteric sclera)','Pallor','Proptosis']],['Nose',['Deviated','Discharge','Swelling']],['Ears',['Discharge','Swelling']],['Lips',['Cheilitis','Ulcer','Swelling','Dry / cracked','Cyanosis']],['Skin',['Rash','Pallor','Jaundice','Lesion','Extra-oral sinus','Scar']],['Hair',['Alopecia']],['TMJ',['Clicking','Pain / tenderness','Limited opening','Deviation on opening','Locking']],['Muscles (mastication, expression)',['Tenderness','Trismus','Hypertrophy']],['Lymph nodes',['Palpable, tender','Palpable, non-tender','Fixed / hard']],['Salivary glands',['Swelling','Tenderness','Reduced flow']]];
+var INTRA=[['Tongue (lateral, dorsal, ventral)',['Coated','Fissured','Ulcer','Red / white patch','Swelling','Ankyloglossia']],['Hard and soft palate',['Ulcer','Swelling / abscess','Torus palatinus','Red / white patch']],['Floor of mouth',['Swelling','Ranula','Torus mandibularis','Ulcer']],['Buccal and labial mucosa',['Ulcer','Linea alba','White patch','Pigmentation']],['Gingiva',['Gingivitis','Periodontitis','Recession','Swelling / abscess','Sinus tract','Calculus']],['Salivary glands (glands and ducts)',['Reduced flow','Swelling','Pus from duct']],['Uvula',['Deviated','Elongated','Edematous']],['Tonsils',['Enlarged','Inflamed']],['Teeth',['Caries','Missing teeth','Mobility','Retained root','Periapical lesion','Impacted tooth','Fractured tooth']]];
+var LAT=['Eyes','Ears','TMJ','Muscles (mastication, expression)','Lymph nodes','Salivary glands','Tongue (lateral, dorsal, ventral)','Buccal and labial mucosa','Salivary glands (glands and ducts)','Tonsils'];
+function exr(p,e){var o={def:NAD,ph:'Describe findings'};if(LAT.indexOf(e[0])<0)return dd(p+slug(e[0]),e[0],e[1],o);return ['Right','Left'].map(function(sd){return dd(p+slug(e[0])+'_'+sd[0].toLowerCase(),e[0]+' – '+sd.toLowerCase(),e[1],o)}).join('')}
+var up=[18,17,16,15,14,13,12,11,21,22,23,24,25,26,27,28],lo=[48,47,46,45,44,43,42,41,31,32,33,34,35,36,37,38];
+var yn=['Yes','No'],sc=['0','0.5','1','1.5','2','2.5','3','3.5','4','4.5','5'];
+var H='';
+H+=sec('Student and case',g(
+ tx('student','Student name',{x:' required'})+tx('group','Group')+dd('sgender','Student gender',['Male','Female'],{oth:0})+tx('date','Date',{t:'date'})+
+ dd('level','Level',['4th level','5th level'],{oth:0})+dd('term','Term',['Term 1','Term 2'],{oth:0})+dd('caseno','Case number',[],{oth:0})+
+ dd('supervisor','Supervisor',['Dr. Mohammed Sha’lan','Dr. Haifa’a Sharfaldeen','Dr. Mohammed Al-Maqaleh','Dr. Naif Al-Ariqi','Dr. Mohammed Al-Habob','Dr. Omar Al-Dhafari','Dr. Qasem Althoid','Dr. Omar Al-Dorri','Dr. Shatha Al-Shami'],{ph:'Supervisor name'})
+)+'<div id="banner" class="banner">Choose level, term and case number.</div><div id="tracker" class="noprint"><div class="chips" id="chips"></div></div>');
+H+=sec('Patient',g(
+ tx('pname','Patient name',{w:1})+dd('gender','Gender',['Female','Male'],{oth:0})+dd('marital','Marital status',['Single','Married','Divorced','Widowed'],{oth:0})+
+ tx('age','Age',{t:'number',x:' min="0" max="120"'})+tx('phone','Phone',{t:'tel'})+tx('address','Address',{w:1})
+));
+H+=sec('Vital signs',g(tx('bp_s','B.P systolic (mmHg)',{t:'number'})+tx('bp_d','B.P diastolic (mmHg)',{t:'number'})+tx('hr','H.R (per min)',{t:'number'})+tx('rbs','R.B.S (mg/dL)',{t:'number'})+tx('rr','R.R (per min)',{t:'number'})));
+H+=sec('History',g(
+ dd('cc','Chief complaint',['Pain','Swelling','Broken or decayed tooth','Mobile tooth','Bleeding gums','Pus discharge / bad taste','Referral (prosthetic / orthodontic)','Routine check-up'],{w:1,always:1,ph:'In the patient’s own words'})+
+ dd('h_onset','Onset',['Sudden','Gradual','Since trauma'])+
+ dd('h_dur','Duration',['Less than 1 day','1 to 3 days','4 to 7 days','1 to 4 weeks','1 to 6 months','More than 6 months'],{oth:0})+
+ dd('h_site','Site',['Upper right','Upper left','Lower right','Lower left','Anterior','Generalized'],{oth:0})+
+ dd('h_char','Character',['Sharp','Dull ache','Throbbing','Radiating','Burning','Pressure'])+
+ dd('h_sev','Severity',['Mild (1–3)','Moderate (4–6)','Severe (7–10)'],{oth:0})+
+ dd('h_freq','Frequency',['Constant','Intermittent','Occasional','Nocturnal','Only on eating'])+
+ dd('h_init','Initiating factors',['Hot','Cold','Sweet','Biting / chewing','Spontaneous','Trauma','None'])+
+ dd('h_rel','Relieving factors',['Analgesics','Rest','Cold application','Nothing relieves it'])+
+ dd('pdh','Past dental history',['Uneventful extraction before','Prolonged bleeding','Dry socket','Post-extraction infection','Anesthetic complication','Dental anxiety / fainting'],{def:'None',w:1})
+));
+H+=sec('Social history and habits',g(
+ dd('qat','Qat',yn,{oth:0})+dd('qat_side','Side',['Right','Left','Both'],{oth:0}).replace('<div class="f ','<div data-dep="qat=Yes" class="f ')+
+ dd('qat_hrs','Duration (hours)',['Less than 1','1 to 2','3 to 4','5 to 6','More than 6'],{oth:0}).replace('<div class="f ','<div data-dep="qat=Yes" class="f ')+
+ dd('smoke','Smoking',yn,{oth:0})+dd('cigs','Cigarettes per day',['Less than 10','10 to 20','More than 20'],{oth:0}).replace('<div class="f ','<div data-dep="smoke=Yes" class="f ')+
+ dd('shammah','Shammah (snuff)',yn,{oth:0})+dd('sham_site','Site',['Upper labial vestibule','Lower labial vestibule','Right buccal vestibule','Left buccal vestibule'],{oth:0}).replace('<div class="f ','<div data-dep="shammah=Yes" class="f ')
+));
+H+=sec('Medical history',g(MED.map(function(m){return dd('m_'+slug(m[0]),m[0],m[1],{def:NAM,ph:'Specify disease, duration, control'})}).join('')+
+ dd('preg','Pregnancy',['Yes'],{def:'No',oth:0}).replace('<div class="f ','<div data-dep="gender=Female" class="f ')+
+ dd('trim','Trimester',['1st','2nd','3rd'],{oth:0}).replace('<div class="f ','<div data-dep="preg=Yes" class="f ')+
+ medBlock('cm','Current medications')
+));
+H+=sec('Extra-oral examination',g(
+ dd('sym','Facial symmetry',['Asymmetric'],{def:'Symmetric',oth:0,ph:'Describe asymmetry'}).replace('<input type="text" class="sx hide"','<input type="text" class="sx hide"')+
+ EXTRA.map(function(e){return exr('x_',e)}).join('')
+));
+H+=sec('Intra-oral examination',g(
+ INTRA.filter(function(e){return e[0]!=='Teeth'}).map(function(e){return exr('i_',e)}).join('')+'<div class="f w"><label class="l">Teeth <span class="hint">Palmer notation, tap a tooth to record findings</span></label><div id="ch_dx"></div><div id="dxp" class="noprint"></div><div id="dxs"></div></div>'+dd('occ','Occlusion',['Class I','Class II','Class III'],{oth:0})
+));
+H+=sec('Investigations, diagnosis and plan',g(
+ ck('inv','Special investigations',['IOPA','OPG','CBCT','MRI'],{t:1})+'<div class="f w"><label class="l">X-ray images <span class="hint">upload one or more (JPG, PNG)</span></label><input type="file" accept="image/*" multiple class="xf noprint"><div id="xg" class="xg"></div></div>'+
+ dd('dx','Final diagnosis (reason for extraction)',['Caries not restorable','Periapical abscess','Chronic periapical periodontitis','Periodontal disease with mobility','Pericoronitis','Impacted tooth','Retained root','Fractured tooth','Orthodontic extraction','Prosthetic reasons'],{w:1,always:1,ph:'Tooth number and details'})+
+ ck('plan','Treatment plan',['O.H.I','Scaling','Extraction','Restoration','Endodontic treatment','Crown','Referral'],{t:1})
+));
+H+=sec('Treatment done',g(
+ dd('la_tech','Anesthesia technique',['Block','Infiltration','Block and infiltration'],{oth:0})+
+ ck('la_nerve','Nerves',['Inferior alveolar','Lingual','Long buccal','Mental','Greater palatine','Nasopalatine','PSA','MSA','ASA','Buccal infiltration','Palatal infiltration'],{t:1})+
+ dd('la','Local anesthetic',['Lido 2%','Mepi 3%','Arti 4%'])+dd('vc','Vasoconstrictor',['1:80k','1:100k','Plain'],{oth:0})+
+ dd('carts','Cartridges used',['1','2','3','4','5','6'],{oth:0})+dd('extype','Type of extraction',['Simple','Surgical'],{oth:0})+
+ dd('time','Extraction time (excluding anesthesia)',['Under 5 min','5 to 10 min','10 to 20 min','20 to 30 min','30 to 45 min','Over 45 min'],{oth:0})
+)+'<div class="f w" style="margin-top:12px"><label class="l">Extracted teeth <span class="hint">Palmer notation, tap to select one or more teeth</span></label>'+'<div id="ch_ext"></div>'+'<div><b>Total extracted:</b> <span id="tc">0</span> <span class="hint" id="tl"></span></div></div>');
+H+=sec('Medication and follow-up','<p class="hint noprint">Pick from the list or type your own. Use “Add medication” when more than one drug is needed.</p><label class="l">Analgesics</label>'+medRows('an')+'<label class="l" style="margin-top:10px">Antibiotics</label>'+medRows('ab')+'<label class="l" style="margin-top:10px">Other</label>'+medRows('ot')+
+ dl('dl_an',DR.an)+dl('dl_ab',DR.ab)+dl('dl_ot',DR.ot)+dl('dl_r',['PO','Topical','Mouth rinse','IM','IV'])+dl('dl_f',['1×1','1×2','1×3','1×4','Every 8 hours','PRN'])+dl('dl_u',['1 day','2 days','3 days','5 days','7 days']));
+H+=sec('Supervisor grading','<div class="sc">'+[['s_la','L.A (out of 5)'],['s_ex','Extraction (out of 5)'],['s_at','Attitude (out of 5)']].map(function(x){return dd(x[0],x[1],sc,{oth:0})}).join('')+'<div><label class="l">Total</label><div class="tot"><span id="s_tot">0</span> / 15</div></div></div>'+
+ '<div class="g" style="margin-top:12px">'+dd('clin_sup','Clinic supervisor',['Associate Professor Taghreed Al-Kibsi (Head of Department)','Professor Alkasem Abbas','Professor Yahya Al-Hadi','Associate Professor Akram Nasher','Associate Professor Sam Da’er','Dr. Yasser Al-Rubidi','Dr. Ahmed Al-Ashwal'],{w:1,ph:'Clinic supervisor name'})+'</div>');
+document.getElementById('form').innerHTML=H;
+
+var $=function(s){return document.querySelector(s)},$$=function(s){return N(document.querySelectorAll(s))};
+var KEY='osc_cases_v1',cur=null;
+function store(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){return[]}}
+function put(a){try{localStorage.setItem(KEY,JSON.stringify(a));return true}catch(e){return false}}
+function val(id){var r=$$('input[name="'+id+'"]');if(r.length){var c=r.filter(function(x){return x.checked})[0];return c?c.value:''}return $('#'+id)?$('#'+id).value:''}
+function setv(id,v){var r=$$('input[name="'+id+'"]');if(r.length){r.forEach(function(x){x.checked=x.value===v});return}var e=$('#'+id);if(e)e.value=v}
+function teeth(){return ORD.filter(function(k){return CH.ext.sel.indexOf(k)>-1})}
+function collect(){var d={};$$('#form [id]').forEach(function(e){d[e.id]=e.value});$$('input[data-grp]:checked').forEach(function(x){(d['g_'+x.dataset.grp]=d['g_'+x.dataset.grp]||[]).push(x.value)});d.teeth=teeth();d.ext=CH.ext.sel.slice();d.tc=CH.dx.tc;d.rows=getRows();d.imgs=imgs;return d}
+function fill(d){$$('#form [id]').forEach(function(e){e.value=d[e.id]!==undefined?d[e.id]:(DEF[e.id]||'')});$$('input[data-grp]').forEach(function(x){x.checked=(d['g_'+x.dataset.grp]||[]).indexOf(x.value)>-1});$$('.t').forEach(function(b){b.classList.toggle('on',(d.teeth||[]).indexOf(b.dataset.n)>-1)});CH.ext.sel=(d.ext||[]).slice();CH.dx.tc=d.tc?JSON.parse(JSON.stringify(d.tc)):{};CH.dx.act='';rCharts();setRows(d.rows);imgs=d.imgs||[];rImgs();upd()}
+function deps(){$$('[data-dep]').forEach(function(f){var s=f.dataset.dep,n=s.indexOf('!=')>-1,p=s.split(n?'!=':'='),v=val(p[0]);f.classList.toggle('hide',n?(v===p[1]||v===''):v!==p[1])})}
+function caseOpts(){var n=REQ[($('#level').value||'')[0]]||0,s=$('#caseno'),k=s.value,h='<option value="">Select</option>';for(var i=1;i<=n;i++)h+='<option value="'+i+'">'+i+(i===n?' (exam)':'')+'</option>';s.innerHTML=h;s.value=k<=n?k:''}
+function key(){var l=$('#level').value,t=$('#term').value,s=$('#student').value.trim().toLowerCase();return l&&t&&s?l+'|'+t+'|'+s:''}
+function upd(){
+ deps();var n=REQ[($('#level').value||'')[0]];if(n)if($('#caseno').options.length!==n+1)caseOpts();
+ var c=+$('#caseno').value,b=$('#banner');
+ if(n&&c){var ex=c===n;b.className='banner'+(ex?' exam':'');b.textContent=(ex?'Exam case. ':'')+'Case '+c+' of '+n+(ex?'. The supervisor grading below counts as the exam mark.':'. Case '+n+' is the exam.')}
+ else if(n){b.className='banner';b.textContent='Each term requires '+n+' cases; case '+n+' is the exam.'}
+ else{b.className='banner';b.textContent='Choose level, term and case number.'}
+ $('#tc').textContent=teeth().length;$('#tl').textContent=teeth().join(', ');
+ var t=0;['s_la','s_ex','s_at'].forEach(function(i){var e=$('#'+i),v=parseFloat(e.value);if(v>5){e.value=5;v=5}if(v<0){e.value=0;v=0}t+=isNaN(v)?0:v});$('#s_tot').textContent=t;
+ chips()}
+function chips(){var k=key(),n=REQ[($('#level').value||'')[0]],h='';if(!k||!n){$('#chips').innerHTML='<span class="hint">Enter student name, level and term to track required cases.</span>';return}
+ var all=store().filter(function(x){return x.k===k}),done={};all.forEach(function(x){done[x.caseno]=x});
+ var cnt=Object.keys(done).length;h='<span style="width:100%"><b>'+cnt+' of '+n+' cases saved</b> for this term</span>';
+ for(var i=1;i<=n;i++)h+='<button type="button" class="chip'+(done[i]?' done':'')+(i===n?' ex':'')+(+$('#caseno').value===i?' cur':'')+'" data-c="'+i+'">'+(i===n?'Exam':i)+(done[i]?' ✓':'')+'</button>';
+ $('#chips').innerHTML=h}
+function msg(t){var m=$('#msg');m.textContent=t;setTimeout(function(){m.textContent=''},3500)}
+$('#form').addEventListener('input',upd);$('#form').addEventListener('change',function(e){if(e.target.id==='level'){caseOpts()}upd()});
+$('#form').addEventListener('click',function(e){var t=e.target.closest('.t');if(t){t.classList.toggle('on');upd()}});
+$('#chips').addEventListener('click',function(e){var c=e.target.closest('.chip');if(!c)return;var k=key(),i=c.dataset.c,f=store().filter(function(x){return x.k===k&&x.caseno==i})[0];if(f){fill(f.d);msg('Loaded case '+i)}else{$('#caseno').value=i;upd()}});
+$('#save').onclick=function(){var s=$('#student').value.trim();if(!s||!$('#level').value||!$('#term').value||!$('#caseno').value||!$('#pname').value.trim()){msg('Enter student name, level, term, case number and patient name first.');return}
+ var a=store().filter(function(x){return !(x.k===key()&&x.caseno===$('#caseno').value)});a.push({k:key(),caseno:$('#caseno').value,d:collect(),at:new Date().toISOString()});var ok=put(a),m='Case saved on this device.';if(!ok){a[a.length-1].d.imgs=[];ok=put(a);m=ok?'Saved without X-ray images (storage full). Print or save as PDF to keep them.':'Could not save. Use Print / save as PDF to keep a copy.'}msg(m);upd()};
+$('#print').onclick=function(){window.print()};
+$('#clear').onclick=function(){var keep={student:$('#student').value,group:$('#group').value,level:$('#level').value,term:$('#term').value,supervisor:$('#supervisor').value,date:$('#date').value};fill({});Object.keys(keep).forEach(function(k){if(k==='level')caseOpts();setv(k,keep[k])});upd();window.scrollTo(0,0)};
+
+var ROW={an:['Drug and dose','Route','Frequency','Duration','Quantity'],ab:['Drug and dose','Route','Frequency','Duration','Quantity'],ot:['Drug and dose','Route','Frequency','Duration','Quantity'],cm:['Drug and dose','Frequency','Reason / since when']};
+var imgs=[],LS={an:'dl_an',ab:'dl_ab',ot:'dl_ot'};
+function medBlock(k,l){return '<div class="f w"><label class="l">'+l+' <span class="hint">leave empty if none</span></label><div id="rows_'+k+'"></div><button type="button" class="b o add noprint" data-k="'+k+'">+ Add medication</button></div>'}
+function esc(x){return String(x||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+function rowHTML(k,v){v=v||[];var p=ROW[k],L=k==='cm'?[]:[LS[k],'dl_r','dl_f','dl_u'];return '<div class="med" style="grid-template-columns:2fr repeat('+(p.length-1)+',1fr) auto">'+p.map(function(x,i){return '<input type="text" '+(L[i]?'list="'+L[i]+'" ':'')+'placeholder="'+x+'" value="'+esc(v[i])+'">'}).join('')+'<button type="button" class="b o mrm noprint" aria-label="Remove medication">×</button></div>'}
+function getRows(){var r={};Object.keys(ROW).forEach(function(k){r[k]=$$('#rows_'+k+' .med').map(function(m){return N(m.querySelectorAll('input')).map(function(i){return i.value})}).filter(function(a){return a.some(Boolean)})});return r}
+function setRows(r){r=r||{};Object.keys(ROW).forEach(function(k){var a=r[k]&&r[k].length?r[k]:[[]];$('#rows_'+k).innerHTML=a.map(function(v){return rowHTML(k,v)}).join('')})}
+function rImgs(){$('#xg').innerHTML=imgs.map(function(m,i){return '<figure class="xi"><img src="'+m.src+'" alt="X-ray '+(i+1)+'"><input type="text" class="xc" data-i="'+i+'" placeholder="Caption, e.g. IOPA tooth 36" value="'+esc(m.cap)+'"><button type="button" class="b o rm noprint" data-i="'+i+'">Remove</button></figure>'}).join('')}
+document.addEventListener('click',function(e){var a=e.target.closest('.add'),m=e.target.closest('.mrm'),r=e.target.closest('.rm');
+ if(a)$('#rows_'+a.dataset.k).insertAdjacentHTML('beforeend',rowHTML(a.dataset.k));
+ if(m)m.closest('.med').remove();
+ if(r){imgs.splice(+r.dataset.i,1);rImgs()}});
+document.addEventListener('input',function(e){if(e.target.classList.contains('xc'))imgs[+e.target.dataset.i].cap=e.target.value});
+document.addEventListener('change',function(e){if(!e.target.classList.contains('xf'))return;N(e.target.files).forEach(function(f){var fr=new FileReader();fr.onload=function(){var im=new Image();im.onload=function(){var k=Math.min(1,1000/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=im.width*k;c.height=im.height*k;c.getContext('2d').drawImage(im,0,0,c.width,c.height);imgs.push({src:c.toDataURL('image/jpeg',0.7),cap:''});rImgs()};im.src=fr.result};fr.readAsDataURL(f)});e.target.value=''});
+
+var Q=['UR','UL','LR','LL'],PERM=['1','2','3','4','5','6','7','8'],PRIM=['A','B','C','D','E'],ORD=[],QN={UR:'upper right',UL:'upper left',LR:'lower right',LL:'lower left'};
+Q.forEach(function(q){PERM.concat(PRIM).forEach(function(n){ORD.push(q+n)})});
+var CH={ext:{p:0,sel:[]},dx:{p:0,act:'',tc:{}}};
+var CONDS=['Missing','Caries','Deep caries (pulp involved)','Restored (filling)','Crown / bridge','Root canal treated','Retained root','Fractured','Mobile','Periapical lesion','Impacted','Partially erupted','Attrition / wear','Supernumerary','Other'];
+function tn(k){return k.slice(0,2)+k.slice(2)+' ('+QN[k.slice(0,2)]+' '+k.slice(2)+')'}
+function chartHTML(id){var c=CH[id],h='<div class="pc"><div class="pt noprint"><button type="button" class="b o pm" data-ch="'+id+'">'+(c.p?'Show permanent teeth (1–8)':'Show primary teeth (A–E)')+'</button></div>';
+ ['U','L'].forEach(function(u){h+='<div class="prow">';['R','L'].forEach(function(sd){var q=u+sd,a=(c.p?PRIM:PERM).slice();if(sd==='R')a.reverse();h+='<div class="pq q'+q+'">'+a.map(function(n){var k=q+n,t=CH.dx.tc[k],cl='tb';
+  if(id==='ext'){if(CH.ext.sel.indexOf(k)>-1)cl+=' on'}else{if(t&&(t.c.length||t.n))cl+=' has';if(t&&t.c.indexOf('Missing')>-1)cl+=' miss';if(CH.dx.act===k)cl+=' act'}
+  return '<button type="button" class="'+cl+'" data-ch="'+id+'" data-k="'+k+'" title="'+tn(k)+'">'+n+'</button>'}).join('')+'</div>'});h+='</div>'});return h+'</div>'}
+function rChart(id){$('#ch_'+id).innerHTML=chartHTML(id)}
+function rPanel(){var k=CH.dx.act,t=CH.dx.tc[k]||{c:[],n:''};$('#dxp').innerHTML=k?'<div class="tp"><div><b>'+tn(k)+'</b> <button type="button" class="b o tcc" data-k="'+k+'" style="padding:2px 10px;font-size:13px">Clear tooth</button></div><div class="opts">'+CONDS.map(function(c){return '<label><input type="checkbox" class="tcb" value="'+c+'"'+(t.c.indexOf(c)>-1?' checked':'')+'> '+c+'</label>'}).join('')+'</div><input type="text" class="tcn" placeholder="Details, e.g. mesial caries, grade II mobility" value="'+esc(t.n)+'"></div>':''}
+function sum(){var l=ORD.filter(function(k){var t=CH.dx.tc[k];return t&&(t.c.length||t.n)}).map(function(k){var t=CH.dx.tc[k];return '<div><b>'+k+'</b>: '+t.c.join(', ')+(t.n?(t.c.length?' – ':'')+esc(t.n):'')+'</div>'});$('#dxs').innerHTML=l.length?l.join(''):'<b>Teeth: NAD</b> <span class="hint noprint">(tap a tooth to record findings)</span>'}
+function rCharts(){rChart('ext');rChart('dx');rPanel();sum();upd()}
+function tcUpd(){var k=CH.dx.act,p=$('#dxp'),c=N(p.querySelectorAll('.tcb:checked')).map(function(x){return x.value}),n=p.querySelector('.tcn').value;if(c.length||n)CH.dx.tc[k]={c:c,n:n};else delete CH.dx.tc[k];rChart('dx');sum()}
+document.addEventListener('click',function(e){var t=e.target.closest('.tb'),p=e.target.closest('.pm'),c=e.target.closest('.tcc');
+ if(t){var id=t.dataset.ch,k=t.dataset.k;if(id==='ext'){var i=CH.ext.sel.indexOf(k);if(i>-1)CH.ext.sel.splice(i,1);else CH.ext.sel.push(k);rChart('ext');upd()}else{CH.dx.act=CH.dx.act===k?'':k;rChart('dx');rPanel()}}
+ if(p){var d=p.dataset.ch;CH[d].p=CH[d].p?0:1;if(d==='dx'){CH.dx.act='';rPanel()}rChart(d)}
+ if(c){delete CH.dx.tc[c.dataset.k];rChart('dx');rPanel();sum()}});
+document.addEventListener('change',function(e){if(e.target.classList.contains('tcb'))tcUpd()});
+document.addEventListener('input',function(e){if(e.target.classList.contains('tcn'))tcUpd()});
+function isDark(){var t=document.documentElement.dataset.theme;return t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('osc_theme',t)}catch(e){}$('#theme').textContent=t==='dark'?'Light mode':'Dark mode'}
+$('#theme').onclick=function(){setTheme(isDark()?'light':'dark')};
+var TH=null;try{TH=localStorage.getItem('osc_theme')}catch(e){}
+if(TH)setTheme(TH);else $('#theme').textContent=isDark()?'Light mode':'Dark mode';
+var PT;window.addEventListener('beforeprint',function(){PT=document.documentElement.dataset.theme;document.documentElement.dataset.theme='light'});
+window.addEventListener('afterprint',function(){if(PT)document.documentElement.dataset.theme=PT;else delete document.documentElement.dataset.theme});
+setRows({});rImgs();rCharts();
+$('#date').value=new Date().toISOString().slice(0,10);caseOpts();upd();
+</script>
+</body>
+</html>
